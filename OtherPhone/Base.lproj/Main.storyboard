@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OtherPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hJs-60-XM2">
+                                <rect key="frame" x="22" y="433" width="370" height="160"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="q6w-Ka-q5L"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rQj-14-W4U">
+                                    <size key="itemSize" width="132" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCellIdentifier" id="g2e-sZ-nhh" customClass="ReceivedImageCollectionViewCell" customModule="OtherPhone" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="16" width="132" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2Ar-Fj-lih">
+                                            <rect key="frame" x="0.0" y="0.0" width="132" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Ys-ku-8uv" customClass="CustomImageView" customModule="OtherPhone" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="128" id="Glz-SB-lkP"/>
+                                                        <constraint firstAttribute="width" constant="132" id="iwD-ag-FFq"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="6Ys-ku-8uv" firstAttribute="top" secondItem="2Ar-Fj-lih" secondAttribute="top" id="blX-KJ-hAI"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Ys-ku-8uv" secondAttribute="trailing" id="h9a-6L-LwR"/>
+                                                <constraint firstAttribute="bottom" secondItem="6Ys-ku-8uv" secondAttribute="bottom" id="lVd-VN-TUO"/>
+                                                <constraint firstItem="6Ys-ku-8uv" firstAttribute="leading" secondItem="2Ar-Fj-lih" secondAttribute="leading" id="oDa-Ri-oQT"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="132" height="128"/>
+                                        <connections>
+                                            <outlet property="shownImage" destination="6Ys-ku-8uv" id="SkP-ly-dVe"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Cpa-Fi-V7A"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="y3i-Tc-KpH"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkP-q3-aUe">
+                                <rect key="frame" x="115.5" y="148" width="183" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="uwA-YO-tlb"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Connect &amp; Fetch Images"/>
+                                <connections>
+                                    <action selector="retrieveImagesBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AEG-Ue-cWC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jmp-IE-zFE">
+                                <rect key="frame" x="200" y="85" width="103" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show Image"/>
+                                <connections>
+                                    <action selector="printValueOfStr:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FCs-vs-rlC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jmp-IE-zFE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="96i-EI-vqL"/>
+                            <constraint firstItem="hJs-60-XM2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="Gpu-wg-lqP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hJs-60-XM2" secondAttribute="bottom" constant="269" id="Qh9-fY-oCz"/>
+                            <constraint firstItem="tkP-q3-aUe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="adw-Nb-oWk"/>
+                            <constraint firstItem="tkP-q3-aUe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="boT-od-lQO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hJs-60-XM2" secondAttribute="trailing" constant="22" id="glF-Ey-7w6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jmp-IE-zFE" secondAttribute="trailing" constant="111" id="v6I-hQ-5eZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="hJs-60-XM2" id="81P-pk-LlO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="65.625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
